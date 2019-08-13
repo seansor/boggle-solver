@@ -41,8 +41,9 @@ class TestBoggle(unittest.TestCase):
         
     def test_grid_is_filled_with_letters(self):
         """
-        Ensure each of teh letters in the grid is an uppercase 
-        letters"""
+        Ensure each of the letters in the grid is an uppercase 
+        letter
+        """
         
         grid = boggle.make_grid(2,3)
         for letter in grid.values():
@@ -94,7 +95,10 @@ class TestBoggle(unittest.TestCase):
         twoLetterWord = 'AB'
         threeLetterWord = 'ABC'
         notThereWord = 'EEE'
-        dictionary = [twoLetterWord, threeLetterWord, notThereWord]
+        
+        full_words = [twoLetterWord, threeLetterWord, notThereWord]
+        stems = ['A', 'AB', 'E', 'EE']
+        dictionary = full_words, stems
         
         foundWords = boggle.search(grid, dictionary)
         
@@ -105,7 +109,7 @@ class TestBoggle(unittest.TestCase):
         
     def test_load_dictionary(self):
         """
-        Test that the 'get dictionary' function return a dictionary
+        Test that the 'get dictionary' function returns a dictionary
         that has a length greater than 0
         """
         dictionary = boggle.get_dictionary('words.txt')
